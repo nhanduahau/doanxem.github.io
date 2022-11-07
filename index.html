@@ -36,11 +36,11 @@
        */
         var settings = {
             particles: {
-                length: 500, // maximum amount of particles
+                length: 5000, // maximum amount of particles
                 duration: 2, // particle duration in sec
-                velocity: 150, // particle velocity in pixels/sec
+                velocity: 200, // particle velocity in pixels/sec
                 effect: -0.75, // play with this for a nice effect
-                size: 30, // particle size in pixels
+                size: 40, // particle size in pixels
             },
         };
 
@@ -190,7 +190,7 @@
             function pointOnHeart(t) {
                 return new Point(
                     220 * Math.pow(Math.sin(t), 3),
-                    130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+                    180 * Math.cos(t) - 70 * Math.cos(2 * t) - 30 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 2
                 );
             }
 
@@ -203,8 +203,8 @@
                 // helper function to create the path
                 function to(t) {
                     var point = pointOnHeart(t);
-                    point.x = settings.particles.size / 2 + point.x * settings.particles.size / 350;
-                    point.y = settings.particles.size / 2 - point.y * settings.particles.size / 350;
+                    point.x = settings.particles.size / 2 + point.x * settings.particles.size / 800;
+                    point.y = settings.particles.size / 2 - point.y * settings.particles.size / 800;
                     return point;
                 }
                 // create the path
@@ -233,7 +233,7 @@
                 requestAnimationFrame(render);
 
                 // update time
-                var newTime = new Date().getTime() / 1000,
+                var newTime = new Date().getTime() / 900,
                     deltaTime = newTime - (time || newTime);
                 time = newTime;
 
