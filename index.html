@@ -13,9 +13,10 @@
             height: 100%;
             padding: 0;
             margin: 0;
+            background-color: black;
             background-image: url(B74F1EA9-C967-47AC-9F45-394E2ADFE9A4.jpeg);
             background-position: center;
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
@@ -189,7 +190,7 @@
             // get point on heart with -PI <= t <= PI
             function pointOnHeart(t) {
                 return new Point(
-                    220 * Math.pow(Math.sin(t), 3),
+                    160 * Math.pow(Math.sin(t), 3),
                     180 * Math.cos(t) - 70 * Math.cos(2 * t) - 30 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 2
                 );
             }
@@ -219,7 +220,7 @@
                 }
                 context.closePath();
                 // create the fill
-                context.fillStyle = '#ea8080';
+                context.fillStyle = '#C0C0C0';
                 context.fill();
                 // create the image
                 var image = new Image();
