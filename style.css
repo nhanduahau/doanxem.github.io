@@ -1,0 +1,29 @@
+#ver1 {
+    position: absolute;
+    width: 150px;
+    height: 38px;
+    left: 32px;
+    top: 327px;
+    font-family: 'Italianno';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: #FDADAD;
+    text-decoration: none;
+}
+
+#ver2 {
+    position: absolute;
+    width: 150px;
+    height: 38px;
+    left: 221px;
+    top: 327px;
+    font-family: 'Italianno';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: #FDADAD;
+    text-decoration: none;
+}
