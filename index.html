@@ -28,19 +28,21 @@
 </head>
 
 <body>
-    <div id="countdown">Countdown to November 10, 2023, 5:00 AM GMT: <span id="timer"></span></div>
+    <div id="countdown">Countdown to November 10, 2023, 5:00 AM UTC - 05:00: <span id="timer"></span></div>
 
     <script>
-        // Set the target date and time (November 10, 2023, 5:00 AM GMT)
-        const targetDate = new Date('2023-11-10T00:00:00Z');
+        const targetDate = new Date('2023-11-10T05:00:00Z');
+        targetDate.setUTCHours(targetDate.getUTCHours() + 4);
 
         function updateCountdown() {
             const now = new Date().getTime();
             const timeRemaining = targetDate - now;
 
             if (timeRemaining <= 0) {
-                document.getElementById("timer").textContent = "Countdown complete!";
+                document.getElementById("timer").textContent = "Anh đang bay về gòi nek";
                 clearInterval(countdownInterval);
+                // Display the "hahaa" message
+                document.getElementById("completionMessage").textContent = "Anh đang bay về gòi nek";
             } else {
                 const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
