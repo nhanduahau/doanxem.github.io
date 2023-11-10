@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ngược thời gian</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #countdown1,
+        #countdown2 {
+            font-size: 36px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="countdown1">Bộ đếm 1: 00:00:00</div>
+        <div id="countdown2">Bộ đếm 2 (UTC): 00:00:00</div>
+    </div>
+
+    <script>
+        // Hàm đếm ngược
+        function countdown(targetId, targetDate, isUTC) {
+            const targetElement = document.getElementById(targetId);
+
+            function updateCountdown() {
+                const now = isUTC ? new Date() : new Date(Date.now() - new Date().getTimezoneOffset() * 60000);
+                const timeLeft = targetDate - now;
+
+                if (timeLeft <= 0) {
+                    targetElement.innerHTML = "Hết giờ";
+                } else {
+                    const hours = String(Math.floor(timeLeft / 3600000)).padStart(2, '0');
+                    const minutes = String(Math.floor((timeLeft % 3600000) / 60000)).padStart(2, '0');
+                    const seconds = String(Math.floor((timeLeft % 60000) / 1000)).padStart(2, '0');
+                    targetElement.innerHTML = `${hours}:${minutes}:${seconds}`;
+                }
+            }
+
+            // Cập nhật đồng hồ mỗi giây
+            const countdownInterval = setInterval(updateCountdown, 1000);
+
+            // Đảm bảo rằng bộ đếm không âm
+            updateCountdown();
+        }
+
+        // Thiết lập ngày giờ cho bộ đếm 1
+        const targetDate1 = new Date(); // Ngày giờ mục tiêu
+        targetDate1.setSeconds(targetDate1.getSeconds() + 120); // Cộng thêm 120 giây
+        countdown('countdown1', targetDate1, false);
+
+        // Thiết lập ngày giờ cho bộ đếm 2 (UTC)
+        const targetDate2 = new Date(); // Ngày giờ mục tiêu
+        targetDate2.setSeconds(targetDate2.getSeconds() + 240); // Cộng thêm 240 giây
+        countdown('countdown2', targetDate2, true);
+    </script>
+</body>
+
+</html>
